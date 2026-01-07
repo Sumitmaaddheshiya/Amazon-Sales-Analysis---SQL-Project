@@ -139,6 +139,7 @@ Stores shipping and return information.
 
 ![ERD Diagram](ERD/erd.jpeg)
 
+
 📌 The ERD illustrates:
 - One-to-many and many-to-many relationships
 - Proper normalization
@@ -178,11 +179,26 @@ Stores shipping and return information.
 
 ## 📂 Project Structure
 Amazon-SQL-Project/
+│
 ├── README.md
-├── ERD.md
-├── schema.sql
-├── data_cleaning.sql
-└── analysis.sql
+│
+├── ERD/
+│   └── erd.jpeg
+│
+├── schema/
+│   └── amazon_schema.sql
+│
+├── data_cleaning/
+│   └── amazon_data_cleaning.sql
+│
+├── analysis/
+│   └── amazon_business_queries.sql
+│
+├── dataset/
+│   └── amazon_dataset_files.csv   (optional)
+│
+└── .gitattributes
+
 
 ## ✅ Conclusion
 This project establishes a **strong SQL data foundation** for analyzing an Amazon-style e-commerce system.  
