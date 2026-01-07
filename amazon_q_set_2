@@ -55,24 +55,25 @@ ORDER BY avg_order_value DESC;
 /*4. Monthly total sales over the past year, showing 
 current month sales and previous month sales  */
 
-SELECT  
-    year,
-    month,
-    total_sale AS current_month_sale,
-    LAG(total_sale, 1) OVER (ORDER BY year, month) AS last_month_sale
-FROM (
-    SELECT  
-        EXTRACT(MONTH FROM o.order_date) AS month,
-        EXTRACT(YEAR FROM o.order_date) AS year,
-        ROUND(SUM(oi.quantity * oi.price_per_unit), 2) AS total_sale
-    FROM orders AS o
-    JOIN orders_items AS oi 
+WITH monthly_sales AS (
+    SELECT
+        DATE_FORMAT(o.order_date, '%Y-%m-01') AS month_start,
+        ROUND(SUM(oi.quantity * oi.price_per_unit), 2) AS month_sales
+    FROM orders o
+    JOIN orders_items oi 
         ON oi.order_id = o.order_id
-    WHERE o.order_date >= CURDATE() - INTERVAL 1 YEAR
-    GROUP BY year, month
-    ORDER BY year, month
-) AS t1;
-
+    WHERE o.order_date >= (
+        SELECT DATE_SUB(MAX(order_date), INTERVAL 1 YEAR)
+        FROM orders
+    )
+    GROUP BY DATE_FORMAT(o.order_date, '%Y-%m-01')
+)
+SELECT
+    month_start AS month,
+    month_sales AS current_month_sales,
+    LAG(month_sales) OVER (ORDER BY month_start) AS previous_month_sales
+FROM monthly_sales
+ORDER BY month_start;
 
 /*5. Customers who registered but never placed an order, 
 with time since registration  */
