@@ -137,7 +137,7 @@ Stores shipping and return information.
 
 ## 📐 Entity Relationship Diagram (ERD)
 
-![ERD Diagram](ERD/amazon_erd.png)
+![ERD Diagram](ERD/erd.jpeg)
 
 📌 The ERD illustrates:
 - One-to-many and many-to-many relationships
