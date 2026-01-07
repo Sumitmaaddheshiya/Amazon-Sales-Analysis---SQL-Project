@@ -136,9 +136,7 @@ Stores shipping and return information.
 - Validated foreign key relationships
 
 ## 📐 Entity Relationship Diagram (ERD)
-
-![ERD Diagram](ERD/erd.jpeg)
-
+![erd ](https://github.com/user-attachments/assets/e6401120-53a2-4630-86d5-b85d04fe3ed5)
 
 📌 The ERD illustrates:
 - One-to-many and many-to-many relationships
