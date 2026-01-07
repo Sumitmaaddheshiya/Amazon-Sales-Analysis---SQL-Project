@@ -179,25 +179,19 @@ Stores shipping and return information.
 
 ## 📂 Project Structure
 Amazon-SQL-Project/
-│
 ├── README.md
-│
 ├── ERD/
 │   └── erd.jpeg
-│
 ├── schema/
 │   └── amazon_schema.sql
-│
 ├── data_cleaning/
 │   └── amazon_data_cleaning.sql
-│
 ├── analysis/
 │   └── amazon_business_queries.sql
-│
 ├── dataset/
-│   └── amazon_dataset_files.csv   (optional)
-│
+│   └── amazon_dataset_files
 └── .gitattributes
+
 
 
 ## ✅ Conclusion
